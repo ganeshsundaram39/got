@@ -19,7 +19,11 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
             "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["src/styles.css"],
+            "styles": [
+              "https://fonts.googleapis.com/css?family=Lato:300,400,700",
+              "./src/assets/fontello/css/right.css",
+              "src/styles.css"
+            ],
             "scripts": []
           },
           "configurations": {

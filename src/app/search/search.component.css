@@ -1,0 +1,30 @@
+input,
+button {
+  background-color: transparent;
+  font-size: 3rem;
+  padding: 0;
+  border: 0;
+  max-width: 800px;
+  outline: none;
+  color: #fff;
+  text-rendering: optimizeLegibility;
+  font-weight: 400;
+  font-family: "Lato", sans-serif;
+  padding-bottom: 2%;
+  border-bottom: 1px solid;
+}
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #ffeb3b;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #ffeb3b;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #ffeb3b;
+}
