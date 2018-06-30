@@ -1,5 +1,6 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
 import { HttpService } from "../http.service";
+import { NgForm } from "@angular/forms";
 
 @Component({
   selector: "app-search",
@@ -10,11 +11,11 @@ export class SearchComponent implements OnInit {
   private incrementer: number;
   private placeholderArray: string[];
   private placeholderText: string;
-  private search: string;
+  private searchedText: string;
+  @ViewChild("searchForm") searchForm: NgForm;
   constructor(private _httpService: HttpService) {}
 
   ngOnInit() {
-    console.log(this.incrementer);
     this.incrementer = 1;
     this.placeholderArray = [
       "Type-in a Character",
@@ -30,8 +31,14 @@ export class SearchComponent implements OnInit {
     }, 2500);
   }
 
-  getResults() {
-    console.log(this.search);
+  private onLettersTyped($event) {
+    console.log(this.searchedText);
+  }
+  private getResults() {
+    console.log(this.searchedText);
     console.log(this._httpService.getAllData());
+  }
+  private onSubmit() {
+      console.log(this.searchForm)
   }
 }

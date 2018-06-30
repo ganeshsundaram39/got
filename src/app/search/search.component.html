@@ -1,4 +1,8 @@
-<input type="text" class="search" [placeholder]="placeholderText" [(ngModel)]="search">
-<button type="submit" (click)="getResults()">
-    <i class="icon-right-thin"></i>
-</button>
+<form (ngSubmit)="onSubmit()" #searchForm="ngForm">
+    <input type="text" class="search" [placeholder]="placeholderText" [(ngModel)]="searchedText" name="search" #search="ngModel" (change)="onLettersTyped()" (keyup)="onLettersTyped()"
+        required>
+    <button type="submit" (click)="getResults()" [disabled]="search.invalid && search.untouched">Y
+        <i class="icon-right-thin"></i>
+    </button>
+    <p *ngIf="search.valid && search.value" class="message">Searching...</p>
+</form>
