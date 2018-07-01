@@ -11,8 +11,10 @@ export class SearchComponent implements OnInit {
   private incrementer: number;
   private placeholderArray: string[];
   private placeholderText: string;
-  private searchedText: string;
+  private searchedText: string = "";
+  private showIt: boolean = false;
   @ViewChild("searchForm") searchForm: NgForm;
+  private dataFetched: string[];
   constructor(private _httpService: HttpService) {}
 
   ngOnInit() {
@@ -29,16 +31,21 @@ export class SearchComponent implements OnInit {
       ++this.incrementer;
       if (this.incrementer === 3) this.incrementer = 0;
     }, 2500);
+
+    this.dataFetched = [
+      "House Algood",
+      "House Allyrion of Godsgrace",
+      "House Amber",
+      "House Ambrose",
+      "House Arryn of Gulltown"
+    ];
   }
 
-  private onLettersTyped($event) {
-    console.log(this.searchedText);
-  }
-  private getResults() {
+  public getResults() {
     console.log(this.searchedText);
     console.log(this._httpService.getAllData());
   }
-  private onSubmit() {
-      console.log(this.searchForm)
+  public onSubmit() {
+    console.log(this.searchForm);
   }
 }

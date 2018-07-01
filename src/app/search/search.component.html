@@ -1,8 +1,13 @@
 <form (ngSubmit)="onSubmit()" #searchForm="ngForm">
-    <input type="text" class="search" [placeholder]="placeholderText" [(ngModel)]="searchedText" name="search" #search="ngModel" (change)="onLettersTyped()" (keyup)="onLettersTyped()"
+    <input type="text" class="search" [placeholder]="placeholderText" [(ngModel)]="searchedText" name="search" #search="ngModel"
         required>
-    <button type="submit" (click)="getResults()" [disabled]="search.invalid && search.untouched">Y
+    <button type="submit" (click)="getResults()" [disabled]="search.invalid && search.untouched">
         <i class="icon-right-thin"></i>
     </button>
-    <p *ngIf="search.valid && search.value" class="message">Searching...</p>
+    <p *ngIf="search.dirty && search.value && search.value.length>=2" class="message">Searching...</p>
+    <p *ngIf="search.dirty && search.value==''" class="message">Please type two more characters.</p>
+    <p *ngIf="search.dirty && search.value &&  search.value.length==1 " class="message">Please type one more character.</p>
 </form>
+<div class="suggestions">
+    <span class="searched__suggestion" *ngFor="let suggestion of dataFetched|searched:searchedText" [innerHtml]="suggestion|lowercase|searchedHighlight:searchedText|noSanitize"></span>
+</div>

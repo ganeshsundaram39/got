@@ -1,5 +1,5 @@
 form {
-    margin-top:35vh;
+  margin-top: 35vh;
 }
 .search,
 [type="submit"] {
@@ -7,21 +7,31 @@ form {
   font-size: 3rem;
   font-weight: 400;
   border: 0;
-  max-width: 800px;
   outline: none;
   color: #fff;
   padding-bottom: 2%;
   border-bottom: 1px solid;
 }
+
 [type="submit"] {
   transform: translateX(-100%);
   border-bottom: 0;
   cursor: pointer;
-  z-index:99;
+  z-index: 99;
+  width: 10%;
 }
 [type="submit"] i {
   font-size: 2.5rem;
   color: #fff;
+}
+.search {
+  width: 90%;
+}
+.search:focus ~ p {
+  display: block;
+}
+.search:not(:focus) ~ p {
+  display: none;
 }
 ::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
@@ -39,9 +49,29 @@ form {
   color: var(--base);
 }
 
+.message {
+  color: rgba(225, 225, 225, 1);
+  margin-top: 2%;
+  font-size: 0.9rem;
+}
 
-.message{
-    color:#fff;
-    margin-top:3%;
-
+.suggestions {
+  max-width: 600px;
+  margin-top: 3%;
+}
+.searched__suggestion {
+  display: inline-block;
+  padding: 1%;
+  background: #fff;
+  margin: 1% 2%;
+  cursor: pointer;
+}
+.searched__highlight {
+  background: var(--base);
+}
+.searched__suggestion,
+.searched__highlight {
+  font-size: 0.8rem;
+  color: rgba(0, 0, 0, 0.9);
+  font-weight: 400;
 }
