@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
 import { HttpService } from "../http.service";
 import { NgForm } from "@angular/forms";
+import { isArray } from "util";
 
 @Component({
   selector: "app-search",
@@ -32,20 +33,19 @@ export class SearchComponent implements OnInit {
       if (this.incrementer === 3) this.incrementer = 0;
     }, 2500);
 
-    this.dataFetched = [
-      "House Algood",
-      "House Allyrion of Godsgrace",
-      "House Amber",
-      "House Ambrose",
-      "House Arryn of Gulltown"
-    ];
+    // this.dataFetched = [
+    //   "House Algood",
+    //   "House Allyrion of Godsgrace",
+    //   "House Amber",
+    //   "House Ambrose",
+    //   "House Arryn of Gulltown"
+    // ];
+    this.dataFetched = this._httpService.getAllData();
+
+    console.log(this.dataFetched);
   }
 
-  public getResults() {
-    console.log(this.searchedText);
-    console.log(this._httpService.getAllData());
-  }
   public onSubmit() {
-    console.log(this.searchForm);
+    if (this.searchedText.length < 2) return;
   }
 }

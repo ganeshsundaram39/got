@@ -5,10 +5,10 @@ import { proxy } from "./config";
 @Injectable({
   providedIn: "root"
 })
-export class BooksHttpService {
+export class HousesHttpService {
   constructor(private _http: HttpClient) {}
 
-  getAllBookInfo() {
-    return this._http.get(`${proxy}https://anapioficeandfire.com/api/books/`);
+  getAllHouseData() {
+    return this._http.get(`${proxy}https://anapioficeandfire.com/api/houses/`);
   }
 }

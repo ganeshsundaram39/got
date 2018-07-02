@@ -1,7 +1,7 @@
 <form (ngSubmit)="onSubmit()" #searchForm="ngForm">
     <input type="text" class="search" [placeholder]="placeholderText" [(ngModel)]="searchedText" name="search" #search="ngModel"
         required>
-    <button type="submit" (click)="getResults()" [disabled]="search.invalid && search.untouched">
+    <button type="submit" [disabled]="searchedText.length<2">
         <i class="icon-right-thin"></i>
     </button>
     <p *ngIf="search.dirty && search.value && search.value.length>=2" class="message">Searching...</p>
