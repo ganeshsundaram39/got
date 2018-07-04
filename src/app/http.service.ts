@@ -17,7 +17,7 @@ export class HttpService {
   public getAllData() {
     this.booksHttp.getAllBookInfo().subscribe(
       data => {
-        this.datastore.push(data);
+        this.datastore.push(...data);
       },
       error => {
         console.log(error);
@@ -25,7 +25,7 @@ export class HttpService {
     );
     this.housesHttp.getAllHouseData().subscribe(
       data => {
-        this.datastore.push(data);
+        this.datastore.push(...data);
       },
       error => {
         console.log(error);
@@ -33,7 +33,7 @@ export class HttpService {
     );
     this.charactersHttp.getAllHouseData().subscribe(
       data => {
-        this.datastore.push(data);
+        this.datastore.push(...data);
       },
       error => {
         console.log(error);

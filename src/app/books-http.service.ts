@@ -9,6 +9,8 @@ export class BooksHttpService {
   constructor(private _http: HttpClient) {}
 
   getAllBookInfo() {
-    return this._http.get(`${proxy}https://anapioficeandfire.com/api/books/`);
+    return this._http.get(
+      `${proxy}https://anapioficeandfire.com/api/books?page=1&pageSize=50`
+    );
   }
 }

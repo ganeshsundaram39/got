@@ -9,6 +9,8 @@ export class HousesHttpService {
   constructor(private _http: HttpClient) {}
 
   getAllHouseData() {
-    return this._http.get(`${proxy}https://anapioficeandfire.com/api/houses/`);
+    return this._http.get(
+      `${proxy}https://anapioficeandfire.com/api/houses?page=1&pageSize=50`
+    );
   }
 }

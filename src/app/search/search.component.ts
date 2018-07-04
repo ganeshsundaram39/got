@@ -15,7 +15,7 @@ export class SearchComponent implements OnInit {
   private searchedText: string = "";
   private showIt: boolean = false;
   @ViewChild("searchForm") searchForm: NgForm;
-  private dataFetched: string[];
+  private dataFetched: {}[];
   constructor(private _httpService: HttpService) {}
 
   ngOnInit() {
@@ -41,7 +41,6 @@ export class SearchComponent implements OnInit {
     //   "House Arryn of Gulltown"
     // ];
     this.dataFetched = this._httpService.getAllData();
-
     console.log(this.dataFetched);
   }
 

@@ -10,7 +10,7 @@ export class CharactersHttpService {
 
   getAllHouseData() {
     return this._http.get(
-      `${proxy}https://anapioficeandfire.com/api/characters/`
+      `${proxy}https://anapioficeandfire.com/api/characters?page=1&pageSize=50`
     );
   }
 }

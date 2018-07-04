@@ -9,5 +9,5 @@
     <p *ngIf="search.dirty && search.value &&  search.value.length==1 " class="message">Please type one more character.</p>
 </form>
 <div class="suggestions">
-    <span class="searched__suggestion" *ngFor="let suggestion of dataFetched|searched:searchedText" [innerHtml]="suggestion|lowercase|searchedHighlight:searchedText|noSanitize"></span>
+    <span class="searched__suggestion" *ngFor="let suggestion of dataFetched|searched:searchedText" [innerHtml]="suggestion.name|lowercase|searchedHighlight:searchedText|noSanitize"></span>
 </div>
