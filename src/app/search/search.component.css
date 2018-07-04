@@ -38,12 +38,10 @@ form {
   color: var(--base);
   opacity: 1; /* Firefox */
 }
-
 :-ms-input-placeholder {
   /* Internet Explorer 10-11 */
   color: var(--base);
 }
-
 ::-ms-input-placeholder {
   /* Microsoft Edge */
   color: var(--base);
@@ -65,6 +63,11 @@ form {
   background: #fff;
   margin: 1% 2%;
   cursor: pointer;
+  transition: all .1s;
+  transition-timing-function: ease-in-out;
+}
+.searched__suggestion:hover{
+    transform:translateY(-2px);
 }
 .searched__highlight {
   background: var(--base);
@@ -74,4 +77,5 @@ form {
   font-size: 0.8rem;
   color: rgba(0, 0, 0, 0.9);
   font-weight: 400;
+
 }

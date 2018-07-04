@@ -5,9 +5,13 @@ import { FormsModule } from "@angular/forms";
 import { AppComponent } from "./app.component";
 import { SearchComponent } from "./search/search.component";
 import { HttpClientModule } from "@angular/common/http";
-import { SearchedPipe } from "./searched.pipe";
-import { SearchedHighlightPipe } from "./searched-highlight.pipe";
-import { NoSanitizePipe } from "./no-sanitize.pipe";
+import { SearchedPipe } from "./pipes/searched.pipe";
+import { SearchedHighlightPipe } from "./pipes/searched-highlight.pipe";
+import { NoSanitizePipe } from "./pipes/no-sanitize.pipe";
+import { AppRoutesModule } from "./app-routes.module";
+import { DetailsComponent } from './details/details.component';
+import { ResultsComponent } from './results/results.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -15,9 +19,12 @@ import { NoSanitizePipe } from "./no-sanitize.pipe";
     SearchComponent,
     SearchedPipe,
     SearchedHighlightPipe,
-    NoSanitizePipe
+    NoSanitizePipe,
+    DetailsComponent,
+    ResultsComponent,
+    PageNotFoundComponent
   ],
-  imports: [BrowserModule, HttpClientModule, FormsModule],
+  imports: [BrowserModule, HttpClientModule, FormsModule, AppRoutesModule],
   providers: [],
   bootstrap: [AppComponent]
 })
