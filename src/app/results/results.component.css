@@ -1,0 +1,28 @@
+.results-container {
+  display: flex;
+  flex-wrap: wrap;
+  height: 100vh;
+  overflow-x: auto;
+}
+
+.card {
+  height: 300px;
+  flex: 0 0 250px;
+  margin: 2%;
+}
+
+.card-header {
+  border-top: 4px solid transparent;
+  height: 10%;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+}
+
+.card-body {
+  height: 90%;
+}
+
+.card-body,
+.card-header {
+  background: #fff;
+}

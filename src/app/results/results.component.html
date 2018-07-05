@@ -1,3 +1,10 @@
-<p>
-  results works!
-</p>
+<div class="results-container">
+    <div class="card" *ngFor="let card of dataFetched">
+        <div class="card-header" [ngStyle]="{borderTopColor : getBorderColor(card.url)}">
+
+        </div>
+        <div class="card-body">
+
+        </div>
+    </div>
+</div>

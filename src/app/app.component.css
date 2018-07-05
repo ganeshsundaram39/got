@@ -2,11 +2,11 @@
   height: 100vh;
 }
 
-.search__container {
-  display: flex;
-  justify-content: center;
-}
-
+/*
 app-search {
   flex: 0 1 700px;
 }
+
+app-results {
+  flex: 0 1 1000px;
+} */
