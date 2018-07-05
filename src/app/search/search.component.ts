@@ -11,11 +11,11 @@ import { Router } from "@angular/router";
 export class SearchComponent implements OnInit {
   private incrementer: number;
   private placeholderArray: string[];
-  private placeholderText: string;
-  private searchedText: string = "";
+  public placeholderText: string;
+  public searchedText: string = "";
   private showIt: boolean = false;
   @ViewChild("searchForm") searchForm: NgForm;
-  private dataFetched;
+  public dataFetched;
   constructor(private _httpService: HttpService, private router: Router) {}
 
   ngOnInit() {

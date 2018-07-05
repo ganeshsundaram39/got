@@ -10,8 +10,8 @@ const appRoutes: Routes = [
   { path: "", component: SearchComponent, pathMatch: "full" },
   { path: "results", component: ResultsComponent },
   { path: "details", component: DetailsComponent },
-  {path:"not-found",component:PageNotFoundComponent}
-  { path: "**", redirectTo:"not-found"}
+  { path: "not-found", component: PageNotFoundComponent },
+  { path: "**", redirectTo: "not-found" }
 ];
 @NgModule({
   imports: [CommonModule, RouterModule.forRoot(appRoutes)],
