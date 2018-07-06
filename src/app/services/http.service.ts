@@ -7,38 +7,41 @@ import { CharactersHttpService } from "./characters-http.service";
   providedIn: "root"
 })
 export class HttpService {
-  datastore = [];
+  data: { properties?: any }[] = [];
   constructor(
     private booksHttp: BooksHttpService,
     private housesHttp: HousesHttpService,
     private charactersHttp: CharactersHttpService
   ) {}
 
-  public getAllData() {
+  public getAllDataFromApi() {
     this.booksHttp.getAllBookInfo().subscribe(
-      (data: {}[]) => {
-        this.datastore.push(...data);
+      (response: {}[]) => {
+        response.forEach(d => (d["type"] = "book"));
+        this.data.push(... response);
       },
       error => {
         console.log(error);
       }
     );
     this.housesHttp.getAllHouseData().subscribe(
-      (data: {}[]) => {
-        this.datastore.push(...data);
+      (response: {}[]) => {
+        response.forEach(d => (d["type"] = "house"));
+        this.data.push(...response);
       },
       error => {
         console.log(error);
       }
     );
-    this.charactersHttp.getAllHouseData().subscribe(
-      (data: {}[]) => {
-        this.datastore.push(...data);
+    this.charactersHttp.getAllCharactersInfo().subscribe(
+      (response: {}[]) => {
+        response.forEach(d => (d["type"] = "character"));
+        this.data.push(...response);
       },
       error => {
         console.log(error);
       }
     );
-    return this.datastore;
+    return this.data;
   }
 }

@@ -8,7 +8,7 @@ import { proxy, domain } from "../config";
 export class CharactersHttpService {
   constructor(private _http: HttpClient) {}
 
-  getAllHouseData() {
+  getAllCharactersInfo() {
     return this._http.get(
       `${proxy}${domain}/api/characters?page=1&pageSize=50`
     );

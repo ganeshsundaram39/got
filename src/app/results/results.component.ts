@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { HttpService } from "../services/http.service";
+import { DataService } from "../services/data.service";
 
 @Component({
   selector: "app-results",
@@ -8,18 +8,18 @@ import { HttpService } from "../services/http.service";
 })
 export class ResultsComponent implements OnInit {
   public dataFetched: {}[];
-  constructor(private _httpService: HttpService) {}
+  constructor(private _dataService: DataService) {}
 
   ngOnInit() {
-    this.dataFetched = this._httpService.getAllData();
+    this.dataFetched = this._dataService.dataStore;
     console.log(this.dataFetched);
   }
 
-  getBorderColor(url: string) {
-    return `var(--${
-      ["character", "house", "book"].filter(type =>
-        new RegExp(type, "i").test(url)
-      )[0]
-    })`;
+  getBorderColor(type: string): string {
+    return `var(--${type})`;
+  }
+
+  getBoxShadow(type: string): string {
+    return `0 2px 2px 0 var(--${type}), 0 0 0 1px var(--${type})`;
   }
 }

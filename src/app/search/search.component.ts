@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
-import { HttpService } from "../services/http.service";
+
 import { NgForm } from "@angular/forms";
 import { Router } from "@angular/router";
+import { DataService } from "../services/data.service";
 
 @Component({
   selector: "app-search",
@@ -13,10 +14,9 @@ export class SearchComponent implements OnInit {
   private placeholderArray: string[];
   public placeholderText: string;
   public searchedText: string = "";
-  private showIt: boolean = false;
   @ViewChild("searchForm") searchForm: NgForm;
   public dataFetched;
-  constructor(private _httpService: HttpService, private router: Router) {}
+  constructor(private _dataService: DataService, private router: Router) {}
 
   ngOnInit() {
     this.incrementer = 1;
@@ -33,7 +33,7 @@ export class SearchComponent implements OnInit {
       if (this.incrementer === 3) this.incrementer = 0;
     }, 2500);
 
-    this.dataFetched = this._httpService.getAllData();
+    this.dataFetched = this._dataService.dataStore;
   }
 
   public onSubmit() {

@@ -9,9 +9,10 @@ import { SearchedPipe } from "./pipes/searched.pipe";
 import { SearchedHighlightPipe } from "./pipes/searched-highlight.pipe";
 import { NoSanitizePipe } from "./pipes/no-sanitize.pipe";
 import { AppRoutesModule } from "./app-routes.module";
-import { DetailsComponent } from './details/details.component';
-import { ResultsComponent } from './results/results.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { DetailsComponent } from "./details/details.component";
+import { ResultsComponent } from "./results/results.component";
+import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
+import { NamePipe } from "./pipes/name.pipe";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     NoSanitizePipe,
     DetailsComponent,
     ResultsComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    NamePipe
   ],
   imports: [BrowserModule, HttpClientModule, FormsModule, AppRoutesModule],
   providers: [],

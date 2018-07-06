@@ -7,6 +7,7 @@
   font-size: 20px;
   font-family: "Lato", sans-serif;
   text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
   font-weight: 300;
   color: #555;
   --base: #ffeb3b;
