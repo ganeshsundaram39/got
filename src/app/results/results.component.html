@@ -1,4 +1,28 @@
 <div class="results-container">
+    <div class="nav">
+        <div class="nav-container">
+            <form class="search__form" (onSubmit)="onSubmit()" #searchForm="ngForm">
+                <div class="search">
+                    <input type="text" name="search" placeholder="Search">
+                    <button class="submit">
+                        <i class="icon-search"></i>
+                    </button>
+                </div>
+            </form>
+            <div class="space">
+                <div class="inner__space">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sub__nav" *ngIf="showSubNav">
+        <div class="total__results">About 75 results
+        </div>
+        <button class="filter">
+            <i class="icon-filter"></i>Filter </button>
+    </div>
+
     <div class="card" *ngFor="let card of dataFetched" [ngStyle]="{boxShadow: getBoxShadow(card.type)}">
         <div class="card-header" [ngStyle]="{borderTopColor : getBorderColor(card.type)}">
             {{card.type|uppercase}}

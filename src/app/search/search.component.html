@@ -4,14 +4,15 @@
             <input type="text" class="search" [placeholder]="placeholderText" [(ngModel)]="searchedText" name="search" #search="ngModel"
                 required>
             <button type="submit" [disabled]="searchedText.length<2">
-                <i class="icon-right-thin"></i>
+                <i class="icon-right"></i>
             </button>
             <p *ngIf="search.dirty && search.value && search.value.length>=2" class="message">Searching...</p>
             <p *ngIf="search.dirty && search.value==''" class="message">Please type two more characters.</p>
             <p *ngIf="search.dirty && search.value &&  search.value.length==1 " class="message">Please type one more character.</p>
         </form>
         <div class="suggestions">
-            <span class="searched__suggestion" *ngFor="let suggestion of dataFetched|searched:searchedText" [innerHtml]="suggestion.name|lowercase|searchedHighlight:searchedText|noSanitize"></span>
+            <span class="searched__suggestion" *ngFor="let suggestion of dataFetched|searched:searchedText; let last=last;" [innerHtml]="suggestion.name|lowercase|searchedHighlight:searchedText|noSanitize">
+            </span>
         </div>
     </div>
 </div>

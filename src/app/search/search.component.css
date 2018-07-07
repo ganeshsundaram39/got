@@ -43,14 +43,6 @@ form {
   color: var(--base);
   opacity: 1; /* Firefox */
 }
-:-ms-input-placeholder {
-  /* Internet Explorer 10-11 */
-  color: var(--base);
-}
-::-ms-input-placeholder {
-  /* Microsoft Edge */
-  color: var(--base);
-}
 
 .message {
   color: rgba(225, 225, 225, 1);
@@ -75,11 +67,13 @@ form {
 .searched__suggestion:hover {
   transform: translateY(-2px);
 }
-.searched__highlight {
+.searched__highlight,
+.searched__highlight[_ngcontent-c2] {
   background: var(--base);
 }
 .searched__suggestion,
-.searched__highlight {
+.searched__highlight,
+.searched__highlight[_ngcontent-c2] {
   font-size: 0.8rem;
   color: rgba(0, 0, 0, 0.9);
   font-weight: 400;

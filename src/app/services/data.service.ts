@@ -12,7 +12,7 @@ export class DataService {
 
   constructor(private httpService: HttpService) {
     this._dataStore = this.httpService.getAllDataFromApi();
-  }
+    }
 
   get dataStore(): storeType[] {
     return this._dataStore;
