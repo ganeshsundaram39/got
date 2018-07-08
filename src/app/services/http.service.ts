@@ -18,7 +18,7 @@ export class HttpService {
     this.booksHttp.getAllBookInfo().subscribe(
       (response: {}[]) => {
         response.forEach(d => (d["type"] = "book"));
-        this.data.push(... response);
+        this.data.push(...response);
       },
       error => {
         console.log(error);
@@ -27,6 +27,10 @@ export class HttpService {
     this.housesHttp.getAllHouseData().subscribe(
       (response: {}[]) => {
         response.forEach(d => (d["type"] = "house"));
+        response = response.map(d => {
+          d["name"] = d["name"].replace(new RegExp("House ", "gi"), "");
+          return d;
+        });
         this.data.push(...response);
       },
       error => {

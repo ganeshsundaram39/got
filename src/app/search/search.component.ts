@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from "@angular/core";
+import { Component, OnInit, ViewChild, ViewEncapsulation } from "@angular/core";
 
 import { NgForm } from "@angular/forms";
 import { Router } from "@angular/router";
@@ -7,7 +7,8 @@ import { DataService } from "../services/data.service";
 @Component({
   selector: "app-search",
   templateUrl: "./search.component.html",
-  styleUrls: ["./search.component.css"]
+  styleUrls: ["./search.component.css"],
+  encapsulation: ViewEncapsulation.None
 })
 export class SearchComponent implements OnInit {
   private incrementer: number;

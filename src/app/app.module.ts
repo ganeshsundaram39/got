@@ -13,6 +13,7 @@ import { DetailsComponent } from "./details/details.component";
 import { ResultsComponent } from "./results/results.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 import { NamePipe } from "./pipes/name.pipe";
+import { CategoryPipe } from "./pipes/category.pipe";
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { NamePipe } from "./pipes/name.pipe";
     DetailsComponent,
     ResultsComponent,
     PageNotFoundComponent,
-    NamePipe
+    NamePipe,
+    CategoryPipe
   ],
   imports: [BrowserModule, HttpClientModule, FormsModule, AppRoutesModule],
   providers: [],

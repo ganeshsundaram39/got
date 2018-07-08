@@ -1,29 +1,25 @@
-<div class="results-container">
-    <div class="nav">
-        <div class="nav-container">
-            <form class="search__form" (onSubmit)="onSubmit()" #searchForm="ngForm">
-                <div class="search">
-                    <input type="text" name="search" placeholder="Search">
-                    <button class="submit">
-                        <i class="icon-search"></i>
-                    </button>
-                </div>
-            </form>
-            <div class="space">
-                <div class="inner__space">
-
-                </div>
-            </div>
+<div class="nav">
+    <form class="search__form" (onSubmit)="onSubmit()" #searchForm="ngForm">
+        <div class="search__anything">
+            <input type="text" name="search" placeholder="Search" [(ngModel)]="searchedText" #search="ngModel" required>
+            <button class="submit">
+                <i class="icon-search"></i>
+            </button>
         </div>
-    </div>
-    <div class="sub__nav" *ngIf="showSubNav">
-        <div class="total__results">About 75 results
-        </div>
-        <button class="filter">
+        <button class="filter" (click)="toggleSubNav=!toggleSubNav">
             <i class="icon-filter"></i>Filter </button>
-    </div>
+    </form>
+</div>
+<div class="sub__nav" [ngClass]="{'show__sub--nav' : toggleSubNav}">
+    <form #categoryForm="ngForm">
+        <div *ngFor="let category of categories">
+            <input type="radio" [value]="category" [(ngModel)]="categorySelected" name="category">{{category}}
+        </div>
+    </form>
+</div>
 
-    <div class="card" *ngFor="let card of dataFetched" [ngStyle]="{boxShadow: getBoxShadow(card.type)}">
+<div class="results-container">
+    <div class="card" *ngFor="let card of dataFetched|category:categorySelected|searched:searchedText:'results'" [ngStyle]="{boxShadow: getBoxShadow(card.type)}">
         <div class="card-header" [ngStyle]="{borderTopColor : getBorderColor(card.type)}">
             {{card.type|uppercase}}
         </div>
