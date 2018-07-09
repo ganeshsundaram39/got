@@ -1,6 +1,5 @@
-import { Component, OnInit, ViewChild } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { DataService } from "../services/data.service";
-import { NgForm } from "@angular/forms";
 import { ActivatedRoute, Params } from "@angular/router";
 
 @Component({
@@ -11,10 +10,8 @@ import { ActivatedRoute, Params } from "@angular/router";
 export class ResultsComponent implements OnInit {
   public dataFetched: {}[];
   public searchedText = "";
-  public toggleSubNav: boolean = false;
   public categorySelected: string = "All";
-  public categories: string[] = ["All", "House", "Character", "Book"];
-  @ViewChild("searchForm") searchForm: NgForm;
+
   constructor(
     private _dataService: DataService,
     private activateRoute: ActivatedRoute
@@ -38,5 +35,11 @@ export class ResultsComponent implements OnInit {
     return `0 2px 2px 0 var(--${type}), 0 0 0 1px var(--${type})`;
   }
 
-  onSubmit() {}
+  userEnteringText(searchedText: string) {
+    this.searchedText = searchedText;
+  }
+
+  userSelectingCategory(categorySelected: string) {
+    this.categorySelected = categorySelected;
+  }
 }
