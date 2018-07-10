@@ -1,0 +1,13 @@
+<div class="details__container">
+    <div class="details">
+        <div class="nav">
+            <button class="btn" (click)="goBack()">
+                <i class="icon-back"></i>Back</button>
+            <button class="btn" [routerLink]="['/']">
+                <i class="icon-search"></i>Search</button>
+        </div>
+        <div class="detail" *ngFor="let detail of details|cleanDetails|keys">
+            <div class="name" *ngIf="detail=='name'">{{details[detail]}}</div>
+        </div>
+    </div>
+</div>

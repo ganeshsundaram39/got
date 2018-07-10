@@ -23,7 +23,6 @@
   font-weight: 400;
   outline: 0;
   width: 60%;
-  transition: all 400ms;
 }
 .search__anything input:focus {
   width: 80%;
@@ -40,10 +39,10 @@
 .icon-search,
 .icon-filter,
 .filter,
-.search__anything input,
-.filter {
+.search__anything input {
   color: #fff;
   font-size: 1.1rem;
+  transition: all 400ms;
 }
 
 .filter {
@@ -56,8 +55,9 @@
   outline: 0;
 }
 
-.filter:active,
-.filter:active > .icon-filter {
+.filter:hover,
+.filter:hover > .icon-filter,
+input:focus ~ button .icon-search {
   color: var(--base);
 }
 

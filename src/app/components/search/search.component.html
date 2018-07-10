@@ -6,12 +6,12 @@
             <button type="submit" [disabled]="searchedText.length<2">
                 <i class="icon-right"></i>
             </button>
-            <p *ngIf="search.dirty && search.value && search.value.length>=2" class="message">Searching...</p>
             <p *ngIf="search.dirty && search.value==''" class="message">Please type two more characters.</p>
             <p *ngIf="search.dirty && search.value &&  search.value.length==1 " class="message">Please type one more character.</p>
         </form>
         <div class="suggestions">
-            <span class="searched__suggestion" *ngFor="let suggestion of dataFetched|searched:searchedText:'search'|slice:0:10;" [innerHtml]="suggestion.name|lowercase|searchedHighlight:searchedText|noSanitize">
+            <span class="searched__suggestion" *ngFor="let suggestion of dataFetched|searched:searchedText:'search'|slice:0:10;" [innerHtml]="suggestion.name|lowercase|searchedHighlight:searchedText|noSanitize"
+                [routerLink]="['/details',suggestion.type,suggestion.id]">
             </span>
         </div>
     </div>

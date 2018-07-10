@@ -9,7 +9,7 @@
             {{card.name|name|titlecase}}
         </div>
         <div class="card-footer">
-            <button class="more__details">More Details</button>
+            <button class="more__details" [routerLink]="['/details',card.type,card.id]">More Details</button>
         </div>
     </div>
 </div>
