@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { Location } from "@angular/common";
-import { DetailsHttpService } from "../services/details-http.service";
+import { DetailsHttpService } from "../../services/details-http.service";
 
 @Component({
   selector: "app-details",
@@ -24,7 +24,16 @@ export class DetailsComponent implements OnInit {
       id: +this._activatedRoute.snapshot.params["id"]
     };
 
-    this.details = this._detailsHttp.getDetails(this.request);
+    this._detailsHttp.getDetails(this.request).subscribe(
+      response => {
+        this.details = response;
+        console.log(this.details);
+      },
+      error => {
+        console.log(error);
+        this.details = {};
+      }
+    );
   }
 
   goBack() {

@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpService } from "./http.service";
+import { DetailsHttpService } from "./details-http.service";
 
 interface storeType {
   properties?: any;
@@ -12,7 +13,6 @@ export class DataService {
 
   constructor(private httpService: HttpService) {
     this._dataStore = this.httpService.getAllDataFromApi();
-    // this._dataStore.forEach(d => console.log(d));
   }
 
   get dataStore(): storeType[] {

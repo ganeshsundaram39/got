@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { DataService } from "../services/data.service";
+import { DataService } from "../../services/data.service";
 import { ActivatedRoute, Params } from "@angular/router";
 
 @Component({
@@ -19,8 +19,6 @@ export class ResultsComponent implements OnInit {
 
   ngOnInit() {
     this.dataFetched = this._dataService.dataStore;
-    console.log(this.dataFetched);
-
     this.searchedText = this.activateRoute.snapshot.queryParams["q"];
     this.activateRoute.queryParams.subscribe((params: Params) => {
       this.searchedText = params["q"];

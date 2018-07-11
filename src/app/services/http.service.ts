@@ -19,6 +19,7 @@ export class HttpService {
     this.booksHttp.getAllBookInfo().subscribe(
       (response: {}[]) => {
         response.forEach(d => {
+          if (d["name"] === "") d["name"] = "N / A";
           d["type"] = "book";
           d["id"] = getId(d["url"]);
         });
@@ -31,6 +32,7 @@ export class HttpService {
     this.housesHttp.getAllHouseData().subscribe(
       (response: {}[]) => {
         response.forEach(d => {
+          if (d["name"] === "") d["name"] = "N / A";
           d["type"] = "house";
           d["id"] = getId(d["url"]);
         });
@@ -47,6 +49,7 @@ export class HttpService {
     this.charactersHttp.getAllCharactersInfo().subscribe(
       (response: {}[]) => {
         response.forEach(d => {
+          if (d["name"] === "") d["name"] = "N / A";
           d["type"] = "character";
           d["id"] = getId(d["url"]);
         });

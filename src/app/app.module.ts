@@ -12,11 +12,12 @@ import { AppRoutesModule } from "./app-routes.module";
 import { DetailsComponent } from "./components/details/details.component";
 import { ResultsComponent } from "./components/results/results.component";
 import { PageNotFoundComponent } from "./components/page-not-found/page-not-found.component";
-import { NamePipe } from "./pipes/name.pipe";
 import { CategoryPipe } from "./pipes/category.pipe";
 import { NavbarComponent } from "./components/navbar/navbar.component";
-import { CleanDetailsPipe } from "./pipes/clean-details.pipe";
 import { KeysPipe } from "./pipes/keys.pipe";
+import { SortPipe } from "./pipes/sort.pipe";
+import { NamePipe } from "./pipes/name.pipe";
+import { CleanDetailsPipe } from "./pipes/clean-details.pipe";
 
 @NgModule({
   declarations: [
@@ -28,11 +29,12 @@ import { KeysPipe } from "./pipes/keys.pipe";
     DetailsComponent,
     ResultsComponent,
     PageNotFoundComponent,
-    NamePipe,
     CategoryPipe,
     NavbarComponent,
-    CleanDetailsPipe,
-    KeysPipe
+    KeysPipe,
+    SortPipe,
+    NamePipe,
+    CleanDetailsPipe
   ],
   imports: [BrowserModule, HttpClientModule, FormsModule, AppRoutesModule],
   providers: [],

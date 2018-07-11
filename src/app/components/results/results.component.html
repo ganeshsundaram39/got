@@ -1,12 +1,12 @@
 <app-navbar [searchedText]="searchedText" (enteringText)="userEnteringText($event)" (categorySelecting)="userSelectingCategory($event)"></app-navbar>
 
 <div class="results-container">
-    <div class="card" *ngFor="let card of dataFetched|category:categorySelected|searched:searchedText:'results'" [ngStyle]="{boxShadow: getBoxShadow(card.type)}">
+    <div class="card" *ngFor="let card of dataFetched|category:categorySelected|searched:searchedText:'results'|sort" [ngStyle]="{boxShadow: getBoxShadow(card.type)}">
         <div class="card-header" [ngStyle]="{borderTopColor : getBorderColor(card.type)}">
             {{card.type|uppercase}}
         </div>
         <div class="card-body">
-            {{card.name|name|titlecase}}
+            {{card.name|titlecase}}
         </div>
         <div class="card-footer">
             <button class="more__details" [routerLink]="['/details',card.type,card.id]">More Details</button>

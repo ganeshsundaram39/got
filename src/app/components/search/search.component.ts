@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild, ViewEncapsulation } from "@angular/core";
 
 import { NgForm } from "@angular/forms";
 import { Router } from "@angular/router";
-import { DataService } from "../services/data.service";
+import { DataService } from "../../services/data.service";
 
 @Component({
   selector: "app-search",
