@@ -1,2 +1,2 @@
-export const getId = url => url.slice(url.lastIndexOf("/") + 1);
-export const getType = url => url.slice(url.lastIndexOf("/") + 1);
+export const getId = url => url.split("/")[url.split("/").length - 1];
+export const getType = url => url.split("/")[url.split("/").length - 2];

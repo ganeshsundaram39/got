@@ -1,11 +1,9 @@
-import { Pipe, PipeTransform } from '@angular/core';
+import { Pipe, PipeTransform } from "@angular/core";
 
-
-
-@Pipe({name: 'keys'})
+@Pipe({ name: "keys" })
 export class KeysPipe implements PipeTransform {
-  transform(value) : any {
-    if(!value) {
+  transform(value): any {
+    if (!value) {
       return null;
     }
     return Object.keys(value);

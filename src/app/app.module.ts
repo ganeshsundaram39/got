@@ -18,6 +18,7 @@ import { KeysPipe } from "./pipes/keys.pipe";
 import { SortPipe } from "./pipes/sort.pipe";
 import { NamePipe } from "./pipes/name.pipe";
 import { CleanDetailsPipe } from "./pipes/clean-details.pipe";
+import { UrlTransformPipe } from "./pipes/url-transform.pipe";
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { CleanDetailsPipe } from "./pipes/clean-details.pipe";
     KeysPipe,
     SortPipe,
     NamePipe,
-    CleanDetailsPipe
+    CleanDetailsPipe,
+    UrlTransformPipe
   ],
   imports: [BrowserModule, HttpClientModule, FormsModule, AppRoutesModule],
   providers: [],

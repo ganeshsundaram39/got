@@ -11,6 +11,7 @@ import { DetailsHttpService } from "../../services/details-http.service";
 export class DetailsComponent implements OnInit {
   request: { type: string; id: number };
   details: {};
+  visible: boolean = true;
 
   constructor(
     private _location: Location,
@@ -27,11 +28,13 @@ export class DetailsComponent implements OnInit {
     this._detailsHttp.getDetails(this.request).subscribe(
       response => {
         this.details = response;
-        console.log(this.details);
       },
       error => {
         console.log(error);
         this.details = {};
+      },
+      () => {
+        this.visible = false;
       }
     );
   }
