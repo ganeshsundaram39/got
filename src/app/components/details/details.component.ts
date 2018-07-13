@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { Location } from "@angular/common";
 import { DetailsHttpService } from "../../services/details-http.service";
 
@@ -11,12 +11,13 @@ import { DetailsHttpService } from "../../services/details-http.service";
 export class DetailsComponent implements OnInit {
   request: { type: string; id: number };
   details: {};
-  visible: boolean = true;
+  loaderVisible: boolean = true;
 
   constructor(
     private _location: Location,
     private _activatedRoute: ActivatedRoute,
-    private _detailsHttp: DetailsHttpService
+    private _detailsHttp: DetailsHttpService,
+    private _route: Router
   ) {}
 
   ngOnInit() {
@@ -31,10 +32,11 @@ export class DetailsComponent implements OnInit {
       },
       error => {
         console.log(error);
+        this._route.navigate(["/not-found"]);
         this.details = {};
       },
       () => {
-        this.visible = false;
+        this.loaderVisible = false;
       }
     );
   }

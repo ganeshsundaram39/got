@@ -23,6 +23,8 @@ export class ResultsComponent implements OnInit {
     this.activateRoute.queryParams.subscribe((params: Params) => {
       this.searchedText = params["q"];
     });
+
+    if (this.searchedText == undefined) this.searchedText = "";
   }
 
   getBorderColor(type: string): string {

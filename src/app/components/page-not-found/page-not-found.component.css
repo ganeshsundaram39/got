@@ -1,0 +1,62 @@
+.not--found__container {
+  min-height: 120vh;
+  display: flex;
+  justify-content: center;
+}
+
+.not--found {
+  width: 65vw;
+  min-height: 100vh;
+  background: #fff;
+  padding: 4%;
+  margin: 5% 0;
+}
+
+.nav {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn {
+  background: var(--base);
+  padding: 6px 12px;
+  outline: 0;
+  border: 0;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 400;
+}
+
+.btn,
+.btn .icon-search {
+  color: rgba(0, 0, 0, 0.75);
+  transition: color 400ms;
+}
+
+.btn:hover,
+.btn:hover .icon-search {
+  color: #000;
+}
+.four--not__four {
+  text-align: center;
+  font-size: 5rem;
+  color: rgba(0, 0, 0, 0.9);
+  margin: 3% 0 -11%;
+  font-weight: 400;
+  letter-spacing: 15px;
+}
+.message {
+  font-size: 1.1rem;
+  font-weight: 400;
+  text-transform: lowercase;
+  color: rgba(0, 0, 0, 0.8);
+}
+.logo {
+  display: flex;
+  justify-content: center;
+}
+
+.logo img {
+  width: 95%;
+  height: 95%;
+}

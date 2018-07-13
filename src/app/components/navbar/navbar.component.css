@@ -85,19 +85,24 @@ input:focus ~ button .icon-search {
   justify-content: center;
   transform: rotateX(90deg);
   transform-origin: top;
+  transition: all 400ms;
 }
 .show__sub--nav {
   transform: rotateX(0);
-  height: 150px;
+  height: 200px;
 }
 
 .sub__nav form {
   width: 50%;
   display: flex;
-  justify-content: space-around;
+  /* justify-content: space-around; */
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
-
+.category__radio {
+  margin: 4% 0;
+}
 .category__radio label {
   font-size: 1.3rem;
   font-weight: 400;
@@ -117,4 +122,17 @@ input:focus ~ button .icon-search {
 
 .category__not--selected {
   color: #fff;
+}
+
+@media (min-width: 576px) {
+  .sub__nav form {
+    justify-content: space-around;
+    flex-direction: row;
+  }
+  .show__sub--nav {
+    height: 150px;
+  }
+  .category__radio {
+    margin: 0;
+  }
 }
