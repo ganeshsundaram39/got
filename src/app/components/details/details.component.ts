@@ -21,21 +21,24 @@ export class DetailsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    // get all parameters
     this.request = {
       type: this._activatedRoute.snapshot.params["type"],
       id: +this._activatedRoute.snapshot.params["id"]
     };
-
+    // send parameters to service to get full details
     this._detailsHttp.getDetails(this.request).subscribe(
       response => {
         this.details = response;
       },
       error => {
         console.log(error);
+        // if error navigate to not found page
         this._route.navigate(["/not-found"]);
         this.details = {};
       },
       () => {
+        //   after data is fetched hide the spinner(loading animation)
         this.loaderVisible = false;
       }
     );

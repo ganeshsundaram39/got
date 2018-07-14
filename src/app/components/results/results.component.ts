@@ -18,12 +18,17 @@ export class ResultsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    // get all data from  data service
     this.dataFetched = this._dataService.dataStore;
+    // get query parameter q and
+    // pass this to navbar component using property binding
     this.searchedText = this.activateRoute.snapshot.queryParams["q"];
+    // get query parameter q if changed afterwards
     this.activateRoute.queryParams.subscribe((params: Params) => {
       this.searchedText = params["q"];
     });
 
+    // if nothing is searched return all data
     if (this.searchedText == undefined) this.searchedText = "";
   }
 
@@ -36,10 +41,12 @@ export class ResultsComponent implements OnInit {
   }
 
   userEnteringText(searchedText: string) {
+    // get searched text from navbar component using component event binding
     this.searchedText = searchedText;
   }
 
   userSelectingCategory(categorySelected: string) {
+    // get selected category from navbar component using component event binding
     this.categorySelected = categorySelected;
   }
 }

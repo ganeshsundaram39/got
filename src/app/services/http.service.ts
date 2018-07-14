@@ -16,11 +16,17 @@ export class HttpService {
   ) {}
 
   public getAllDataFromApi() {
+    // get  data from services and process them
+    // to assign type and id
     this.booksHttp.getAllBookInfo().subscribe(
       (response: {}[]) => {
+        // loop through response
         response.forEach(d => {
+          // assign n/a if its empty
           if (d["name"] === "") d["name"] = "N / A";
+          // assign type
           d["type"] = "book";
+          //   get id from url and assign
           d["id"] = getId(d["url"]);
         });
         this.data.push(...response);

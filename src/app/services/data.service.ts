@@ -12,6 +12,7 @@ export class DataService {
   private _dataStore: storeType[] = [];
 
   constructor(private httpService: HttpService) {
+    // store data
     this._dataStore = this.httpService.getAllDataFromApi();
   }
 

@@ -6,6 +6,7 @@ export class KeysPipe implements PipeTransform {
     if (!value) {
       return null;
     }
+    // get keys
     return Object.keys(value);
   }
 }

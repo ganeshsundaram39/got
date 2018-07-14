@@ -1,8 +1,11 @@
+<!-- main search page -->
 <div class="search__container">
     <div>
         <form (ngSubmit)="onSubmit()" #searchForm="ngForm" id="search__form">
+            <!-- user enters query -->
             <input type="text" class="search" [placeholder]="placeholderText" [(ngModel)]="searchedText" name="search" #search="ngModel"
                 required>
+            <!-- when pressed enter key or clicked  this will open  results component -->
             <button type="submit" [disabled]="searchedText.length<2">
                 <i class="icon-right"></i>
             </button>
@@ -11,7 +14,11 @@
         </form>
 
     </div>
+    <!-- suggestions for user -->
+    <!-- clicking one of them  will open details component -->
     <div class="suggestions">
+        <!-- searched pipe to filter user query  -->
+        <!-- slice pipe to show top 10 suggestions to user -->
         <span class="searched__suggestion" *ngFor="let suggestion of dataFetched|searched:searchedText:'search'|slice:0:10;" [innerHtml]="suggestion.name|lowercase|searchedHighlight:searchedText|noSanitize"
             [routerLink]="['/details',suggestion.type,suggestion.id]">
         </span>

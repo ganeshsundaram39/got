@@ -25,10 +25,12 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {}
   userEnteringText() {
+    // emit the entered text by user
     this.enteringText.emit(this.searchedText);
   }
 
   userSelectingCategory() {
+    // emit the selected category by user
     this.categorySelecting.emit(this.categorySelected);
   }
   onSubmit() {}

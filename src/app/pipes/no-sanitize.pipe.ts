@@ -7,6 +7,7 @@ import { DomSanitizer, SafeHtml } from "@angular/platform-browser";
 export class NoSanitizePipe implements PipeTransform {
   constructor(private domSanitizer: DomSanitizer) {}
   transform(html: string): SafeHtml {
+    //   to insert html from typescript
     return this.domSanitizer.bypassSecurityTrustHtml(html);
   }
 }

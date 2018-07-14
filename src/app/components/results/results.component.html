@@ -1,6 +1,12 @@
+<!-- property binding searchedText  to send query params from url to navbar -->
+<!-- event binding user entered text and selected category from navbar to results component -->
 <app-navbar [searchedText]="searchedText" (enteringText)="userEnteringText($event)" (categorySelecting)="userSelectingCategory($event)"></app-navbar>
 
 <div class="results-container">
+    <!-- show data in card format and filtering accordingly using pipes -->
+    <!-- category pipe to get only selected category data -->
+    <!-- searched pipe to get results respective to user input -->
+    <!-- sort pipe to show data in alphabetical order -->
     <div class="card" *ngFor="let card of dataFetched|category:categorySelected|searched:searchedText:'results'|sort" [ngStyle]="{boxShadow: getBoxShadow(card.type)}">
         <div class="card-header" [ngStyle]="{borderTopColor : getBorderColor(card.type)}">
             {{card.type|uppercase}}

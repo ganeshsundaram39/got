@@ -9,6 +9,7 @@ export class DetailsHttpService {
   constructor(private _httpClient: HttpClient) {}
 
   getDetails(request: { type: string; id: number }) {
+    // get details
     return this._httpClient.get(
       `${proxy}${domain}/api/${request.type}s/${request.id}`
     );
