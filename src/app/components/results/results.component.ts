@@ -9,7 +9,7 @@ import { ActivatedRoute, Params } from "@angular/router";
 })
 export class ResultsComponent implements OnInit {
   public dataFetched: {}[];
-  public searchedText = "";
+  public searchedText: string = "";
   public categorySelected: string = "All";
 
   constructor(
@@ -40,12 +40,12 @@ export class ResultsComponent implements OnInit {
     return `0 2px 2px 0 var(--${type}), 0 0 0 1px var(--${type})`;
   }
 
-  userEnteringText(searchedText: string) {
+  userEnteringText(searchedText: string): void {
     // get searched text from navbar component using component event binding
     this.searchedText = searchedText;
   }
 
-  userSelectingCategory(categorySelected: string) {
+  userSelectingCategory(categorySelected: string): void {
     // get selected category from navbar component using component event binding
     this.categorySelected = categorySelected;
   }

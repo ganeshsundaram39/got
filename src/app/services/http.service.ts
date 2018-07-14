@@ -15,7 +15,7 @@ export class HttpService {
     private charactersHttp: CharactersHttpService
   ) {}
 
-  public getAllDataFromApi() {
+  public getAllDataFromApi(): { properties?: any }[] {
     // get  data from services and process them
     // to assign type and id
     this.booksHttp.getAllBookInfo().subscribe(

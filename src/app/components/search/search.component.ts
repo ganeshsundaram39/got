@@ -39,7 +39,7 @@ export class SearchComponent implements OnInit {
     this.dataFetched = this._dataService.dataStore;
   }
 
-  public onSubmit() {
+  public onSubmit(): void {
     // navigate to results page only if user entered more than 1 character
     if (this.searchedText.length < 2) return;
 
