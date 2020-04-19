@@ -18,7 +18,7 @@ export class DetailsComponent implements OnInit {
     private _activatedRoute: ActivatedRoute,
     private _detailsHttp: DetailsHttpService,
     private _route: Router
-  ) {}
+  ) { }
 
   ngOnInit() {
     // get all parameters
@@ -44,7 +44,7 @@ export class DetailsComponent implements OnInit {
     );
   }
 
-  goBack():void {
+  goBack(): void {
     this._location.back();
   }
 }
