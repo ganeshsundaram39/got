@@ -40,8 +40,8 @@ import { environment } from '../environments/environment';
     CleanDetailsPipe,
     UrlTransformPipe
   ],
-  imports: [BrowserModule, HttpClientModule, FormsModule, AppRoutesModule, ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })],
+  imports: [BrowserModule, HttpClientModule, FormsModule, AppRoutesModule],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

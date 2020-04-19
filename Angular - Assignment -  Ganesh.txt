@@ -1,5 +1,0 @@
-Source Code
-https://github.com/ganeshsundaram39/got
-
-Live
-https://ganeshsundaram39.github.io/got/dist/got-assignment/#/
