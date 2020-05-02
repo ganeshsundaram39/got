@@ -17,10 +17,6 @@ import { NavbarComponent } from "./components/navbar/navbar.component";
 import { KeysPipe } from "./pipes/keys.pipe";
 import { SortPipe } from "./pipes/sort.pipe";
 import { NamePipe } from "./pipes/name.pipe";
-import { CleanDetailsPipe } from "./pipes/clean-details.pipe";
-import { UrlTransformPipe } from "./pipes/url-transform.pipe";
-import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -37,8 +33,6 @@ import { environment } from '../environments/environment';
     KeysPipe,
     SortPipe,
     NamePipe,
-    CleanDetailsPipe,
-    UrlTransformPipe
   ],
   imports: [BrowserModule, HttpClientModule, FormsModule, AppRoutesModule],
   providers: [],

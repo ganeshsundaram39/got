@@ -64,9 +64,10 @@
   color: rgba(0, 0, 0, 0.75);
   letter-spacing: 5px;
 }
-.value {
-  word-wrap: break-word;
-  word-break: break-all;
+
+.value span:not(:last-child)::after{
+    content: ", ";
+    margin-right: 5px;
 }
 
 .key,

@@ -1,26 +1,37 @@
 <div class="details__container">
-    <div class="details">
-        <div class="nav">
-            <button class="btn" (click)="goBack()">
-                <i class="icon-back"></i>Back</button>
-            <button class="btn" [routerLink]="['/']">
-                <i class="icon-search"></i>Search</button>
-        </div>
-        <!-- spinner loading animation -->
-        <div class="loader" *ngIf="loaderVisible">
-            <i class="icon-spin6"></i>
-        </div>
-        <!-- cleandetails pipe to remove empty data -->
-        <!-- keys pipe since details is object  -->
-        <!-- converting it into  keys array  and using it accordingly-->
-        <div class="detail" *ngFor="let detail of details|cleanDetails|keys">
-            <!-- show main name -->
-            <div class="name" *ngIf="detail=='name'">{{details[detail]|name}}</div>
-            <!-- show other details -->
-            <div class="other" *ngIf="detail!='name' && detail!='url' ">
-                <div class="key">{{detail|uppercase}}</div>
-                <div class="value" [innerHtml]="details[detail]|urlTransform|noSanitize"></div>
-            </div>
-        </div>
+  <div class="details">
+    <div class="nav">
+      <button class="btn" (click)="goBack()">
+        <i class="icon-back"></i>Back</button>
+      <button class="btn" [routerLink]="['/']">
+        <i class="icon-search"></i>Search</button>
     </div>
+    <!-- spinner loading animation -->
+    <div class="loader" *ngIf="loaderVisible">
+      <i class="icon-spin6"></i>
+    </div>
+    <!-- cleandetails pipe to remove empty data -->
+    <!-- keys pipe since details is object  -->
+    <!-- converting it into  keys array  and using it accordingly-->
+    <div class="detail" *ngFor="let detail of details|keys">
+      <!-- show main name -->
+      <div class="name" *ngIf="detail=='name'">{{details[detail]|name}}</div>
+      <!-- show other details -->
+      <div class="other" *ngIf="detail!='name' ">
+        <div class="key">{{detail|uppercase}}</div>
+        <ng-container *ngIf="checkIfObservable(details[detail])">
+          <div class="value" *ngIf="details[detail] | async; let results">
+            <ng-container *ngFor="let result of getResult(results)">
+              <span>{{result}}</span>
+            </ng-container>
+          </div>
+        </ng-container>
+        <ng-container *ngIf="!checkIfObservable(details[detail])">
+          <div class="value">
+            {{isDate(details[detail])?getDate(details[detail]).toDateString():details[detail]}}
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
 </div>

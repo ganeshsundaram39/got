@@ -6,12 +6,18 @@ import { proxy, domain } from "../config";
   providedIn: "root"
 })
 export class DetailsHttpService {
-  constructor(private _httpClient: HttpClient) {}
+  constructor(private _httpClient: HttpClient) { }
 
-  getDetails(request: { type: string; id: number }) {
+  getDetail(request: { type: string; id: number }) {
     // get details
     return this._httpClient.get(
       `${proxy}${domain}/api/${request.type}s/${request.id}`
+    );
+  }
+  getDetail2(url) {
+    // get details
+    return this._httpClient.get(
+      url
     );
   }
 }
