@@ -17,6 +17,7 @@ import { NavbarComponent } from "./components/navbar/navbar.component";
 import { KeysPipe } from "./pipes/keys.pipe";
 import { SortPipe } from "./pipes/sort.pipe";
 import { NamePipe } from "./pipes/name.pipe";
+import { ScullyLibModule } from '@scullyio/ng-lib';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,7 @@ import { NamePipe } from "./pipes/name.pipe";
     SortPipe,
     NamePipe,
   ],
-  imports: [BrowserModule, HttpClientModule, FormsModule, AppRoutesModule],
+  imports: [BrowserModule, HttpClientModule, FormsModule, AppRoutesModule, ScullyLibModule],
   providers: [],
   bootstrap: [AppComponent]
 })
